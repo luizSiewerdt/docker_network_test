@@ -1,0 +1,9 @@
+services:
+  single_page:
+    build: .
+    ports:
+      - "3011:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next

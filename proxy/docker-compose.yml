@@ -1,0 +1,14 @@
+services:
+  proxy:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+
+# O backend e o banco de dados externos não fazem parte deste compose.
+# Ajuste BACKEND_URL e DATABASE_URL no .env para apontar para eles.
+# Se estiverem em outro docker-compose, conecte este serviço à mesma
+# network externa (docker network) para que o proxy consiga alcançá-los.
