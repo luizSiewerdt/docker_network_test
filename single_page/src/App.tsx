@@ -1,8 +1,6 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = import.meta.env.VITE_PUBLIC_API_URL;
 
 type User = {
   id: number;
@@ -11,7 +9,7 @@ type User = {
   created_at: string;
 };
 
-export default function Home() {
+export default function App() {
   const [users, setUsers] = useState<User[]>([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -72,7 +70,7 @@ export default function Home() {
 
   return (
     <main>
-      <h1>Usuários SINGLE PAGE PROXY NGINX</h1>
+      <h1>Usuários</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 

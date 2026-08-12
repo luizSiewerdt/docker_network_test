@@ -1,9 +1,15 @@
 services:
   single_page:
     build: .
+    container_name: single_page
     ports:
-      - "3011:3000"
-    volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
+      - "3000:80"
+    environment:
+      - ./.env
+    networks:
+        - proxy
+
+
+networks:
+  proxy:
+    external: true
